@@ -13,14 +13,17 @@ public class Driver{
         BufferedWriter bw = new BufferedWriter(fw);
 
         String input;
-        String text = "Text\n";
+        String text = "";
         while((input = br.readLine()) != null){
             ArrayList<Token> tokenList = scanner.process(input);
             for (Token token: tokenList) {
-                bw.write(token + " ");
+                text += token + " ";
             }
-            bw.write("\n");
+            text += "\n";
         }
+        text = text.trim();
+        System.out.print(text);
+        bw.write(text);
         is.close();
         br.close();
         bw.close();

@@ -22,8 +22,8 @@ public class Driver{
             text += "\n";
         }
         text = text.trim();
-        System.out.print(text);
         bw.write(text);
+
         is.close();
         br.close();
         bw.close();

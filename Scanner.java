@@ -1,12 +1,22 @@
-import java.io.*;
+import java.util.ArrayList;
 
 public class Scanner{
     ArrayList<Token> process (String input) {
-        String[] words = input.split(" ");
-        ArrayList<Token> tokenList = new ArrayList<TokenList>();
+        String[] parts = input.split(" ");
+        ArrayList<String> words = new ArrayList<String>();
+        for(String p: parts) {
+            for (String word : p.split(","))
+                words.add(word);
+        }
+
+        ArrayList<Token> tokenList = new ArrayList();
         for (String w : words) {
-            Token t = new Token(w);
-            tokenList.add(t);
+            if (w.equals("")) {
+                //do nothing
+            } else {
+                Token t = new Token(w);
+                tokenList.add(t);
+            }
         }
 
         return tokenList;
